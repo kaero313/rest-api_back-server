@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="api.dao.apiMapper">
+
+    <select id="selectMember" parameterType="api.dto.member" resultType="api.dto.member">
+        SELECT /* apiMapper.xml-selectMember */
+            id, pw, name
+        FROM
+            MEMBER
+        WHERE
+            id = #{id}
+        AND
+            pw = #{pw}
+    </select>
+
+    <select id="selectMemberIdCheck" parameterType="String" resultType="int">
+        SELECT /* apiMapper.xml-selectMemberIdCheck */
+            COUNT(*)
+        FROM
+            MEMBER
+        WHERE
+            id = #{id}
+    </select>
+
+    <insert id="insertMember" parameterType="api.dto.member">
+        INSERT INTO /* apiMapper.xml-insertMember */
+            MEMBER
+        (
+            id,
+            pw,
+            name
+        )
+            VALUES
+        (
+            #{id},
+            #{pw},
+            #{name}
+        )
+    </insert>
+
+    <update id="updateMember" parameterType="api.dto.member">
+        UPDATE /* apiMapper.xml-updateMember */
+            MEMBER
+        SET
+            name = #{name}
+        WHERE
+            id = #{id}
+        AND
+            pw = #{pw}
+    </update>
+
+    <delete id="deleteMember" parameterType="api.dto.member">
+        DELETE FROM /* apiMapper.xml-deleteMember */
+            MEMBER
+        WHERE
+            id = #{id}
+        AND
+            pw = #{pw}
+    </delete>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
