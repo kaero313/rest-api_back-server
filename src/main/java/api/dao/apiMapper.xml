@@ -7,7 +7,7 @@
 
     <select id="selectMember" parameterType="api.dto.member" resultType="api.dto.member">
         SELECT /* apiMapper.xml-selectMember */
-            id, pw, name
+            name
         FROM
             MEMBER
         WHERE
